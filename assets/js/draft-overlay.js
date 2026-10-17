@@ -1,14 +1,3 @@
-/* Development-only overlay.
-   Every unresolved item lives in a data-draft attribute in the HTML and is
-   rendered ONLY when this file decides the page is being previewed locally
-   or with ?draft=1. The published site on GitHub Pages never shows any of it.
-
-   To preview the draft notes:
-     - open the site from localhost / 127.0.0.1, or
-     - add ?draft=1 to the URL.
-
-   Remove nothing from CHECKLIST.md when an item is resolved: tick it instead,
-   and delete the matching data-draft attribute from the HTML. */
 (function () {
   'use strict';
 

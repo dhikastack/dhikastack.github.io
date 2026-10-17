@@ -1,13 +1,3 @@
-/* ==========================================================================
-   Andhika Hafizh Albana — portfolio
-   Visual reference: the author's own Canva portfolio PDF (kraft paper canvas,
-   torn-paper display letters, heavy ink outlines with hard offset shadows,
-   yellow pill labels). All decorative shapes here are redrawn as SVG/CSS;
-   nothing is lifted from the PDF export.
-   Fonts are self-hosted OFL faces (Shrikhand, Shantell Sans, Inter).
-   ========================================================================== */
-
-/* ---------- 1. fonts ---------- */
 @font-face{font-family:Shrikhand;src:url(../fonts/shrikhand-latin-400-normal.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+2000-206F,U+2122,U+2191,U+2193,U+2212,U+2215}
 @font-face{font-family:Shantell;src:url(../fonts/shantell-sans-latin-400-normal.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:Shantell;src:url(../fonts/shantell-sans-latin-700-normal.woff2) format('woff2');font-weight:700;font-style:normal;font-display:swap}
@@ -16,7 +6,6 @@
 @font-face{font-family:InterX;src:url(../fonts/inter-latin-500-normal.woff2) format('woff2');font-weight:500;font-style:normal;font-display:swap}
 @font-face{font-family:InterX;src:url(../fonts/inter-latin-700-normal.woff2) format('woff2');font-weight:700;font-style:normal;font-display:swap}
 
-/* ---------- 2. tokens ---------- */
 :root{
   --kraft:#E9E3D6; --kraft-2:#E0D8C7; --cream:#FAF6EC;
   --ink:#16150F; --ink-60:#54513F;
@@ -26,12 +15,10 @@
   --bd:3px solid var(--ink);
   --maxw:1180px;
   --ease:cubic-bezier(.22,.9,.3,1);
-  /* This design commits to one light, paper-like world on purpose, so there is
-     no dark palette. Every colour is still declared explicitly here. */
+
   color-scheme:light;
 }
 
-/* ---------- 3. base ---------- */
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 html,body{overflow-x:clip}
@@ -58,7 +45,6 @@ a{color:inherit}
 .wrap-narrow{max-width:800px}
 main{display:block}
 
-/* ---------- 4. accessibility ---------- */
 .skip{
   position:absolute; left:-9999px; top:0; z-index:100;
   background:var(--yellow); border:var(--bd); border-radius:0 0 12px 0;
@@ -68,7 +54,6 @@ main{display:block}
 :focus-visible{outline:4px solid var(--red); outline-offset:3px; border-radius:4px}
 .vh{position:absolute!important; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0}
 
-/* ---------- 5. decorative primitives ---------- */
 .blob{position:absolute; z-index:1; pointer-events:none}
 .pill-label{
   display:inline-block; background:var(--yellow); border:var(--bd); border-radius:999px;
@@ -81,27 +66,24 @@ main{display:block}
   background-image:radial-gradient(var(--ink) 1.1px, transparent 1.1px); background-size:6px 6px;
 }
 
-/* torn-paper display letters (hero + contact) */
-.torn{display:flex; flex-wrap:wrap; gap:2px; align-items:flex-end}
-.torn span{
+.torn{display:flex; flex-wrap:wrap; gap:6px 22px; align-items:flex-end}
+.torn .word{display:inline-flex; gap:2px; align-items:flex-end}
+.torn span:not(.word){
   display:inline-block; font-family:Shrikhand,serif; color:var(--cream);
   line-height:.92; padding:.1em .13em .16em; position:relative;
   text-shadow:2px 3px 0 rgba(0,0,0,.28);
 }
-.torn span::after{
+.torn span:not(.word)::after{
   content:""; position:absolute; inset:0; mix-blend-mode:multiply; opacity:.45;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n2)' opacity='.55'/%3E%3C/svg%3E");
 }
 .t1{clip-path:polygon(2% 6%,38% 0,71% 5%,100% 1%,97% 42%,100% 92%,64% 100%,29% 95%,0 99%,4% 48%)}
 .t2{clip-path:polygon(0 3%,33% 7%,68% 0,100% 6%,95% 51%,99% 96%,60% 91%,26% 100%,3% 94%,6% 47%)}
 .t3{clip-path:polygon(5% 0,41% 6%,74% 1%,98% 7%,100% 45%,96% 100%,57% 94%,21% 99%,0 92%,3% 44%)}
-.torn span:nth-child(3n){transform:rotate(-2.5deg)}
-.torn span:nth-child(3n+1){transform:rotate(1.8deg)}
-.torn span:nth-child(4n){transform:rotate(-1.2deg) translateY(2px)}
-.torn .gap{width:26px; background:none!important; box-shadow:none; clip-path:none}
-.torn .gap::after{display:none}
+.torn span:not(.word):nth-child(3n){transform:rotate(-2.5deg)}
+.torn span:not(.word):nth-child(3n+1){transform:rotate(1.8deg)}
+.torn span:not(.word):nth-child(4n){transform:rotate(-1.2deg) translateY(2px)}
 
-/* ---------- 6. buttons ---------- */
 .btn{
   display:inline-flex; align-items:center; gap:10px; border:var(--bd); border-radius:999px;
   padding:13px 26px; font-family:Shantell,cursive; font-weight:800; font-size:16px;
@@ -115,18 +97,19 @@ main{display:block}
 .btn[aria-disabled="true"]{opacity:.62; cursor:not-allowed; box-shadow:2px 2px 0 var(--ink)}
 .btn[aria-disabled="true"]:hover{transform:none; box-shadow:2px 2px 0 var(--ink)}
 
-/* ---------- 7. header / nav ---------- */
 .site-header{
   position:sticky; top:env(safe-area-inset-top, 0px); z-index:40; background:rgba(233,227,214,.94);
   backdrop-filter:blur(3px); border-bottom:3px solid var(--ink);
 }
 .nav{display:flex; align-items:center; gap:24px; min-height:74px}
-/* the torn-paper wordmark from the PDF cover, scaled down to sit in the bar */
+
 .mark{display:inline-block; text-decoration:none; flex:0 0 auto}
 .mark .torn{gap:1px}
 .mark .torn span{font-size:23px; padding:.08em .1em .12em; text-shadow:1px 2px 0 rgba(0,0,0,.28)}
-.mark:hover .torn span:nth-child(odd){transform:translateY(-2px) rotate(3deg)}
-.mark:hover .torn span:nth-child(even){transform:translateY(-2px) rotate(-3deg)}
+
+.mark .torn span:not(.word){transition:transform .18s var(--ease)}
+.mark:hover .torn span:not(.word):nth-child(odd){transform:translateY(-4px) rotate(5deg)}
+.mark:hover .torn span:not(.word):nth-child(even){transform:translateY(3px) rotate(-5deg)}
 .nav-list{margin-left:auto; display:flex; gap:26px; list-style:none; padding:0}
 .nav-list a{
   font-family:Shantell,cursive; font-weight:700; font-size:16px; text-decoration:none;
@@ -142,8 +125,11 @@ main{display:block}
 }
 .nav-toggle span{display:block; width:24px; height:3px; background:var(--ink); border-radius:2px}
 
-/* ---------- 8. hero ---------- */
 .hero{position:relative; padding:58px 0 82px}
+
+.b-leaf{left:-70px; top:40px; width:200px}
+.b-star{right:-40px; top:-20px; width:180px}
+.b-dot{left:30px; bottom:-30px; width:150px}
 .hero-grid{display:grid; grid-template-columns:1.12fr .88fr; gap:56px; align-items:center}
 .hero h1{font-size:clamp(32px,3.9vw,50px); line-height:1.08; margin:0}
 .hero h1 .hi{display:block; font-family:Shantell,cursive; font-weight:800; font-size:.44em; color:var(--ink-60); margin-bottom:.28em}
@@ -158,7 +144,7 @@ main{display:block}
 .roles{display:flex; gap:10px; margin:34px 0 0; flex-wrap:wrap; list-style:none; padding:0}
 .chip{font-family:Shantell,cursive; font-weight:700; font-size:14px; border:var(--bd); border-radius:999px; padding:6px 16px; background:var(--cream); display:inline-block}
 .chip.b{background:#CFE0F5} .chip.g{background:#CFEBD9}
-/* roles block — lives in the Connect section */
+
 .open-head{font-family:Shantell,cursive; font-weight:800; font-size:clamp(17px,1.8vw,20px); margin:36px 0 18px; display:flex; align-items:center; justify-content:center; gap:10px}
 .open-head::before{content:""; width:13px; height:13px; border-radius:50%; background:#2E9E5B; border:2.5px solid var(--ink); flex:0 0 13px}
 .open-roles{display:flex; gap:16px; justify-content:center; flex-wrap:wrap; list-style:none; padding:0; margin:0}
@@ -188,13 +174,11 @@ main{display:block}
 .vinyl{position:absolute; right:-46px; bottom:10px; width:92px; height:92px; border-radius:50%; background:var(--ink); border:var(--bd); display:grid; place-items:center; box-shadow:var(--sh-sm)}
 .vinyl i{width:34px; height:34px; border-radius:50%; background:var(--yellow); border:3px solid var(--ink); display:block}
 
-/* ---------- 9. sections ---------- */
 section{position:relative; padding:86px 0; z-index:2}
 .sec-head{display:flex; align-items:baseline; gap:20px; margin-bottom:12px; flex-wrap:wrap}
 .sec-head h2{font-size:clamp(30px,3.4vw,42px)}
 .sec-sub{color:var(--ink-60); max-width:62ch; margin-bottom:46px}
 
-/* about */
 #about{background:var(--kraft-2); border-top:3px solid var(--ink); border-bottom:3px solid var(--ink)}
 .about-grid{display:grid; grid-template-columns:.92fr 1.08fr; gap:64px; align-items:start}
 .paper{background:var(--cream); border:var(--bd); border-radius:22px; box-shadow:var(--sh); padding:30px 32px}
@@ -204,7 +188,6 @@ section{position:relative; padding:86px 0; z-index:2}
 .fact b{display:block; font-family:Shrikhand,serif; font-size:21px; line-height:1.2}
 .fact span{font-size:13.5px; color:var(--ink-60)}
 
-/* timeline (Education, rebuilt for the web rather than copied from the PDF slide) */
 .tl{position:relative; margin:0; padding:0 0 0 38px; list-style:none}
 .tl::before{content:""; position:absolute; left:11px; top:10px; bottom:10px; width:4px; background:var(--ink); border-radius:2px}
 .tl>li{position:relative; margin-bottom:26px}
@@ -217,7 +200,6 @@ section{position:relative; padding:86px 0; z-index:2}
 .course{display:flex; gap:8px; flex-wrap:wrap; margin:12px 0 0; padding:0; list-style:none}
 .course li{font-size:13px; border:2px solid var(--ink); border-radius:999px; padding:3px 12px; background:var(--kraft)}
 
-/* ---------- 10. projects ---------- */
 .filters{display:flex; gap:10px; margin-bottom:38px; flex-wrap:wrap}
 .filters button{
   font-family:Shantell,cursive; font-weight:700; font-size:15px; border:var(--bd); border-radius:999px;
@@ -256,8 +238,6 @@ section{position:relative; padding:86px 0; z-index:2}
 .more{font-family:Shantell,cursive; font-weight:800; font-size:15px; text-decoration:none; border-bottom:3px solid var(--yellow); padding-bottom:1px; display:inline-block}
 .more:hover{border-bottom-color:var(--red)}
 
-/* project covers hold the real interface screens, laid out like the
-   pasted-in screenshots on the PDF pages: slight rotation, ink edge, hard shadow. */
 .cover{
   border-right:var(--bd); position:relative; overflow:hidden; min-height:330px;
   display:flex; align-items:center; justify-content:center; gap:18px;
@@ -267,21 +247,32 @@ section{position:relative; padding:86px 0; z-index:2}
   border:3px solid var(--ink); background:#fff; box-shadow:var(--sh-sm);
   max-width:100%; height:auto;
 }
-.cover--phones img{width:148px; border-radius:16px}
+
+.cover--phones img{width:208px; border-radius:18px}
 .cover--phones img:first-child{transform:rotate(-3deg)}
 .cover--phones img:last-child{transform:rotate(3deg)}
-.cover--wide img{width:100%; max-width:430px; border-radius:10px; transform:rotate(-1.5deg)}
-.card .cover--phones{gap:12px; padding:16px}
-.card .cover--phones img{width:88px; border-radius:11px}
-.card .cover--wide img{max-width:230px}
+.cover--wide img{width:100%; max-width:none; border-radius:10px; transform:rotate(-1.5deg) scale(1.06)}
+.card .cover--phones{gap:8px; padding:10px}
+.card .cover--phones img{width:132px; border-radius:13px}
+.card .cover--wide img{max-width:none; transform:rotate(-1.5deg) scale(1.1)}
 
-/* ---------- 11. credentials ---------- */
 #credentials{background:var(--navy); border-top:3px solid var(--ink); border-bottom:3px solid var(--ink); color:var(--cream)}
 #credentials h2{color:var(--cream)}
 #credentials .sec-sub{color:#C8D8EC}
 .creds{display:grid; grid-template-columns:repeat(2,1fr); gap:20px; list-style:none; padding:0; margin:0}
-.cred{background:var(--cream); color:var(--ink); border:var(--bd); border-radius:20px; box-shadow:6px 6px 0 #091B33; padding:24px 26px; display:flex; gap:18px; align-items:flex-start}
-.cred .badge{width:56px; height:56px; flex:0 0 56px; border:var(--bd); border-radius:14px; display:grid; place-items:center; font-family:Shrikhand,serif; font-size:15px; background:var(--yellow)}
+.cred{
+  background:var(--cream); color:var(--ink); border:var(--bd); border-radius:20px;
+  box-shadow:6px 6px 0 #091B33; padding:22px 24px; display:flex; gap:18px; align-items:flex-start;
+}
+
+.cred-shot{
+  margin:0; flex:0 0 122px; width:122px; aspect-ratio:1.4; background:#fff;
+  border:var(--bd); border-radius:13px; overflow:hidden; display:grid; place-items:center;
+}
+.cred-shot img{width:100%; height:100%; object-fit:cover; object-position:center top; transition:transform .45s var(--ease)}
+.cred-shot--empty{background:var(--kraft-2)}
+.cred-body{flex:1; min-width:0}
+.cred .badge{width:54px; height:54px; border:var(--bd); border-radius:14px; display:grid; place-items:center; font-family:Shrikhand,serif; font-size:15px; background:var(--yellow)}
 .cred .badge.li{background:#0A66C2; color:#fff; font-size:13px}
 .cred h3{font-size:18.5px; line-height:1.3; margin-bottom:4px}
 .cred .iss{font-family:Shantell,cursive; font-weight:700; font-size:14px; color:var(--ink-60)}
@@ -289,7 +280,6 @@ section{position:relative; padding:86px 0; z-index:2}
 .verify{display:inline-block; margin-top:12px; font-family:Shantell,cursive; font-weight:800; font-size:14px; text-decoration:none; border-bottom:3px solid var(--yellow)}
 .verify:hover{border-bottom-color:var(--red)}
 
-/* ---------- 12. contact ---------- */
 #connect{padding-bottom:70px; text-align:center}
 #connect .torn{justify-content:center}
 #connect .torn span{font-size:clamp(40px,7.6vw,96px)}
@@ -301,15 +291,37 @@ section{position:relative; padding:86px 0; z-index:2}
 }
 .link:hover{transform:translate(-1px,-1px) rotate(-1.5deg); box-shadow:6px 6px 0 var(--ink)}
 .link:active{transform:translate(2px,2px); box-shadow:2px 2px 0 var(--ink)}
-.l-gh{background:var(--blue); color:#fff} .l-li{background:var(--yellow)} .l-gm{background:var(--pink); color:#fff}
+
+.link{padding:10px 26px 10px 12px; gap:13px}
+.link .ico{width:34px; height:34px; flex:0 0 34px; display:grid; place-items:center}
+.link .ico img{width:100%; height:auto; display:block}
+.l-gh{background:#181717; color:#fff}
+.l-li{background:#0A66C2; color:#fff}
+.l-gm{background:#D93025; color:#fff}
+.l-cv{background:var(--yellow); color:var(--ink); padding:10px 26px}
 .closing{display:inline-block; margin-top:30px; font-family:Shantell,cursive; font-weight:700; font-size:17px; background:linear-gradient(transparent 58%,#BFE6CE 58%); padding:0 6px}
 .site-footer{border-top:3px solid var(--ink); padding:26px 0; font-size:13.5px; color:var(--ink-60); position:relative; z-index:2}
 .foot{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
 
-/* ---------- 13. case-study pages ---------- */
 .cs-head{padding:52px 0 40px; border-bottom:3px solid var(--ink); background:var(--kraft-2)}
-.back{font-family:Shantell,cursive; font-weight:800; font-size:15px; text-decoration:none; display:inline-block; margin-bottom:22px; border-bottom:3px solid var(--yellow)}
-.back:hover{border-bottom-color:var(--red)}
+
+.back{
+  display:inline-flex; align-items:center; font-family:Shrikhand,serif; font-size:19px;
+  text-decoration:none; color:var(--ink); background:#B8DD5B;
+  border:4px solid var(--ink); border-radius:999px; padding:8px 28px 11px;
+  box-shadow:5px 6px 0 var(--ink); margin-bottom:26px;
+  transition:transform .18s var(--ease), box-shadow .18s var(--ease), background-color .18s var(--ease);
+}
+.back:hover{transform:translate(-2px,-3px) rotate(-1.6deg); box-shadow:9px 11px 0 var(--ink); background:#C9EA78}
+.back:active{transform:translate(3px,4px); box-shadow:1px 1px 0 var(--ink)}
+.back--bottom{margin:0}
+
+.deco-layer{position:absolute; inset:0; pointer-events:none; z-index:0; overflow:hidden}
+.deco{position:absolute; display:block; width:124px; animation:float-a 17s ease-in-out infinite}
+.deco svg{width:100%; height:auto; display:block}
+.deco--left{left:-48px}
+.deco--right{right:-48px}
+.deco:nth-child(even){animation-name:float-b; animation-duration:21s}
 .cs-head h1{font-size:clamp(32px,4.4vw,52px); margin:10px 0 14px}
 .cs-head .lede{font-size:18px; color:var(--ink-60); max-width:58ch; margin-bottom:0}
 .cs-meta{display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:16px; margin-top:32px; list-style:none; padding:0}
@@ -323,16 +335,21 @@ section{position:relative; padding:86px 0; z-index:2}
 .cs-body p,.cs-body li{color:var(--ink-60)}
 .cs-body li{margin-bottom:6px}
 .cs-body strong{color:var(--ink)}
-.flow{
-  display:flex; gap:10px; flex-wrap:wrap; list-style:none; padding:0; margin:0 0 1em;
-  align-items:center;
-}
+
+.flow{display:flex; gap:10px; flex-wrap:wrap; list-style:none; padding:0; margin:0 0 1em; align-items:center; counter-reset:step}
 .flow li{
+  counter-increment:step; display:inline-flex; align-items:center; gap:10px;
   font-family:Shantell,cursive; font-weight:700; font-size:14.5px; border:var(--bd);
-  border-radius:999px; padding:7px 18px; background:var(--cream); box-shadow:var(--sh-sm); color:var(--ink);
+  border-radius:999px; padding:6px 18px 6px 7px; background:var(--cream); box-shadow:var(--sh-sm); color:var(--ink);
 }
-.flow li::after{content:"→"; margin-left:14px; color:var(--ink-60)}
-.flow li:last-child::after{content:""; margin:0}
+.flow li::before{
+  content:counter(step); width:25px; height:25px; flex:0 0 25px; border-radius:50%;
+  background:var(--ink); color:var(--cream); display:grid; place-items:center;
+  font-size:12.5px; font-weight:800;
+}
+.flow li:nth-child(4n+1)::before{background:var(--blue)}
+.flow li:nth-child(4n+2)::before{background:var(--green)}
+.flow li:nth-child(4n+3)::before{background:var(--red)}
 .callout{border:var(--bd); border-left-width:10px; border-radius:16px; background:var(--cream); padding:20px 24px; margin:28px 0}
 .callout p:last-child{margin-bottom:0}
 .arch{
@@ -340,9 +357,60 @@ section{position:relative; padding:86px 0; z-index:2}
   background:var(--cream); border:var(--bd); border-radius:16px; padding:22px 24px; overflow-x:auto;
 }
 
-/* ---------- 14. draft placeholders ----------
-   Injected at runtime by draft-overlay.js and only on localhost or ?draft=1.
-   Nothing in this block renders on the published site. */
+.cs-head{position:relative; overflow:hidden}
+.cs-body{position:relative; overflow:hidden}
+.cs-head::before,.cs-head::after,.cs-body::before,.cs-body::after{
+  content:""; position:absolute; pointer-events:none; z-index:0;
+  background-repeat:no-repeat; background-size:contain;
+}
+.cs-head::before{
+  right:-62px; top:-56px; width:216px; height:238px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 220'%3E%3Cpath d='M40 10c40-14 86 6 96 48 9 42-18 56-40 86-23 31-60 52-82 34C-8 160 18 128 16 96 14 62 8 22 40 10z' fill='%232E9E5B' opacity='.5'/%3E%3C/svg%3E");
+  animation:float-a 15s ease-in-out infinite;
+}
+.cs-head::after{
+  left:-46px; bottom:-40px; width:140px; height:140px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 150'%3E%3Ccircle cx='75' cy='75' r='68' fill='%23E2512C' opacity='.5'/%3E%3C/svg%3E");
+  animation:float-b 19s ease-in-out infinite;
+}
+.cs-body::before{
+  left:-58px; top:160px; width:126px; height:126px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cpath d='M90 6l16 46 46-16-26 40 40 26-46 16 16 46-40-26-26 40-16-46-46 16 26-40L-6 82l46-16L24 20l40 26z' fill='%23FFC930' stroke='%2316150F' stroke-width='4'/%3E%3C/svg%3E");
+  animation:spin 52s linear infinite;
+}
+.cs-body::after{
+  right:-52px; bottom:140px; width:148px; height:162px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 220'%3E%3Cpath d='M40 10c40-14 86 6 96 48 9 42-18 56-40 86-23 31-60 52-82 34C-8 160 18 128 16 96 14 62 8 22 40 10z' fill='%232E5FA3' opacity='.3'/%3E%3C/svg%3E");
+  animation:float-a 23s ease-in-out infinite;
+}
+@keyframes float-a{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-15px) rotate(4deg)}}
+@keyframes float-b{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(17px) rotate(-5deg)}}
+
+.cs-body h2{position:relative; display:inline-block; padding-bottom:6px}
+.cs-body h2::after{
+  content:""; position:absolute; left:0; right:0; bottom:0; height:7px; border-radius:4px;
+  background:var(--yellow); transform:scaleX(1); transform-origin:left;
+  transition:transform .75s .15s var(--ease);
+}
+
+.js-motion .cs-body h2:not(.in)::after,
+.js-motion .cs-body .reveal:not(.in) h2::after{transform:scaleX(0)}
+.cs-body h2:nth-of-type(3n+2)::after{background:#9FD3B4}
+.cs-body h2:nth-of-type(3n)::after{background:#F6B9A8}
+
+.cs-body li{transition:transform .18s var(--ease)}
+.cs-body ul:not(.flow):not(.cs-meta) li:hover{transform:translateX(6px)}
+.callout{transition:transform .25s var(--ease), box-shadow .25s var(--ease)}
+.callout:hover{transform:translate(-3px,-4px) rotate(-.4deg); box-shadow:8px 9px 0 var(--ink)}
+.arch{transition:transform .25s var(--ease), box-shadow .25s var(--ease)}
+.arch:hover{transform:translate(-2px,-3px); box-shadow:7px 8px 0 var(--ink)}
+.cs-body a:not(.btn):not(.back):not(.more){
+  background-image:linear-gradient(var(--yellow),var(--yellow));
+  background-size:0 42%; background-position:0 92%; background-repeat:no-repeat;
+  transition:background-size .3s var(--ease); text-decoration-thickness:2px;
+}
+.cs-body a:not(.btn):not(.back):not(.more):hover{background-size:100% 42%}
+
 .draft{
   border:3px dashed var(--red);
   background:repeating-linear-gradient(45deg,#F6E2DA,#F6E2DA 10px,#FBEFEA 10px,#FBEFEA 20px);
@@ -358,35 +426,54 @@ section{position:relative; padding:86px 0; z-index:2}
 }
 .draft-banner b{display:block; font-size:11px; letter-spacing:.12em; text-transform:uppercase}
 
-/* ---------- 15. motion ----------
-   Elements start hidden only when JS confirms motion is wanted; see main.js.
-   Without JS, or with reduced motion, everything renders in its final state. */
 .js-motion .reveal{opacity:0; transform:translateY(18px)}
 .js-motion .reveal.in{opacity:1; transform:none; transition:opacity .62s var(--ease), transform .62s var(--ease)}
 .js-motion .reveal-tilt{opacity:0; transform:translateY(22px) rotate(-1.6deg)}
 .js-motion .reveal-tilt.in{opacity:1; transform:none; transition:opacity .66s var(--ease), transform .66s var(--ease)}
 .js-motion .stagger>*{opacity:0; transform:translateY(14px)}
 .js-motion .stagger.in>*{opacity:1; transform:none; transition:opacity .5s var(--ease), transform .5s var(--ease)}
-.js-motion .torn span{opacity:0}
-.js-motion .torn.in span{opacity:1; animation:drop .54s var(--ease) backwards}
+.js-motion .torn span:not(.word){opacity:0}
+.js-motion .torn.in span:not(.word){opacity:1; animation:drop .54s var(--ease) backwards}
 @keyframes drop{from{opacity:0; transform:translateY(-22px) rotate(-7deg)} to{opacity:1}}
-.torn.hoverable span{transition:transform .2s var(--ease)}
-.torn.hoverable span:hover{transform:translateY(-5px) rotate(4deg)}
+
+.torn.hoverable span:not(.word){transition:transform .12s var(--ease)}
+.torn.hoverable span:not(.word):hover{transform:translateY(-7px) rotate(5deg) scale(1.06)}
 .badge-spin{animation:spin 34s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
+
+@keyframes drift-a{0%,100%{transform:rotate(6deg) translateY(0)}50%{transform:rotate(6deg) translateY(-7px)}}
+@keyframes drift-b{0%,100%{transform:rotate(-8deg) scale(.8) translateY(0)}50%{transform:rotate(-8deg) scale(.8) translateY(8px)}}
+@keyframes bob{0%,100%{transform:rotate(-11deg) translateY(0)}50%{transform:rotate(-8deg) translateY(-5px)}}
 .vinyl,.portrait .ring,.cloud{transition:transform .35s var(--ease)}
 .portrait:hover .ring{transform:rotate(-2deg) scale(1.015)}
-.feat,.card,.cred{transition:transform .2s var(--ease), box-shadow .2s var(--ease)}
-.card:hover,.feat:hover{transform:translate(-2px,-2px); box-shadow:8px 8px 0 var(--ink)}
+.feat,.card,.cred{transition:transform .22s var(--ease), box-shadow .22s var(--ease)}
+.card:hover,.feat:hover{transform:translate(-5px,-6px) rotate(-.45deg); box-shadow:13px 14px 0 var(--ink)}
+.feat:hover{rotate:.35deg}
 
-/* ---------- 15b. hover ----------
-   One idea, applied consistently: everything on the page behaves like a piece
-   of paper pinned to the board, so pointing at it nudges, straightens or lifts
-   it. Transform and colour only, nothing that reflows. Wrapped in a hover query
-   so touch devices never get stuck in a hover state. */
+.rainbow{pointer-events:auto}
+.rainbow path{transform-origin:95px 115px; transition:transform .5s var(--ease)}
+.rainbow:hover path:nth-child(1){transform:scale(1.16)}
+.rainbow:hover path:nth-child(2){transform:scale(1.12); transition-delay:.05s}
+.rainbow:hover path:nth-child(3){transform:scale(1.08); transition-delay:.1s}
+.rainbow:hover path:nth-child(4){transform:scale(1.04); transition-delay:.15s}
+
+.mark-sweep{
+  background-image:linear-gradient(transparent 58%, #BFE6CE 58%);
+  background-size:0 100%; background-repeat:no-repeat;
+  -webkit-box-decoration-break:clone; box-decoration-break:clone;
+}
+.js-motion .reveal.in .mark-sweep{background-size:100% 100%; transition:background-size 1.15s .5s var(--ease)}
+
+.js-motion .hero h1.in{transition-delay:.05s}
+.js-motion .hero .role-line.in{transition-delay:.16s}
+.js-motion .hero .tagline.in{transition-delay:.27s}
+.js-motion .hero .lede.in{transition-delay:.38s}
+.js-motion .hero .cta.in{transition-delay:.48s}
+.hero h1 .hi{transition:transform .25s var(--ease)}
+.hero h1:hover .hi{transform:translateX(5px) rotate(-3deg)}
+
 @media (hover:hover) and (pointer:fine){
 
-  /* project screens straighten and spread out of their pasted-in angle */
   .cover--phones img{transition:transform .3s var(--ease), box-shadow .3s var(--ease)}
   .feat:hover .cover--phones img:first-child,
   .card:hover .cover--phones img:first-child{transform:rotate(0deg) translateX(-8px) translateY(-4px); box-shadow:6px 6px 0 var(--ink)}
@@ -396,51 +483,54 @@ section{position:relative; padding:86px 0; z-index:2}
   .feat:hover .cover--wide img,
   .card:hover .cover--wide img{transform:rotate(0deg) scale(1.02); box-shadow:6px 6px 0 var(--ink)}
 
-  /* credential cards lift, and the issuer badge tips like a sticker */
   .cred:hover{transform:translate(-2px,-2px); box-shadow:8px 8px 0 #091B33}
   .cred .badge{transition:transform .25s var(--ease)}
   .cred:hover .badge{transform:rotate(-7deg) scale(1.06)}
 
-  /* small tiles */
   .fact,.cs-meta li,.flow li{transition:transform .2s var(--ease), box-shadow .2s var(--ease)}
   .fact:hover,.cs-meta li:hover{transform:translateY(-3px); box-shadow:var(--sh-sm)}
   .flow li:hover{transform:translateY(-3px) rotate(-1.5deg)}
 
-  /* chips tilt, alternating direction so a row feels hand-placed */
   .chip,.course li{transition:transform .2s var(--ease), background-color .2s var(--ease)}
   .chip:hover,.course li:hover{transform:rotate(-2.5deg) translateY(-2px)}
   .chip:nth-child(even):hover,.course li:nth-child(even):hover{transform:rotate(2.5deg) translateY(-2px)}
 
-  /* filter buttons */
   .filters button{transition:transform .18s var(--ease), box-shadow .18s var(--ease)}
   .filters button:hover{transform:translate(-1px,-1px); box-shadow:6px 6px 0 var(--ink)}
   .filters button:active{transform:translate(2px,2px); box-shadow:2px 2px 0 var(--ink)}
 
-  /* timeline markers grow when their entry is pointed at */
   .tl>li::before{transition:transform .25s var(--ease)}
   .tl>li:hover::before{transform:scale(1.28)}
 
-  /* role cards straighten and lift */
-  .open-roles li{transition:transform .25s var(--ease), box-shadow .25s var(--ease)}
-  .open-roles li:hover{transform:rotate(0deg) translateY(-4px); box-shadow:var(--sh)}
+  .open-roles li{transition:transform .32s cubic-bezier(.2,1.5,.4,1), box-shadow .25s var(--ease), background-color .25s var(--ease)}
+  .open-roles li:hover{transform:rotate(0deg) translateY(-10px) scale(1.04); box-shadow:9px 12px 0 var(--ink); background:#FFF8E2}
+  .open-roles li:hover b{color:var(--red)}
+  .open-roles b{transition:color .25s var(--ease)}
 
-  /* section labels: the dotted green bead spins */
+  .links li:nth-child(odd) .link:hover{transform:translate(-3px,-5px) rotate(-3.5deg)}
+  .links li:nth-child(even) .link:hover{transform:translate(-3px,-5px) rotate(3.5deg)}
+  .link:hover{box-shadow:9px 10px 0 var(--ink)}
+  .closing{transition:transform .3s var(--ease)}
+  .closing:hover{transform:rotate(-1.5deg) scale(1.03)}
+  .open-head::before{transition:transform .4s var(--ease)}
+  .open-head:hover::before{transform:scale(1.5)}
+
+  .cred:hover{transform:translate(-4px,-5px) rotate(-.4deg); box-shadow:12px 13px 0 #091B33}
+  .cred:hover .cred-shot img{transform:scale(1.05)}
+
   .pill-label::before{transition:transform .5s var(--ease)}
   .sec-head:hover .pill-label::before{transform:translateY(-50%) rotate(180deg)}
 
-  /* portrait cluster reacts together */
   .portrait:hover .vinyl{transform:rotate(180deg)}
   .portrait:hover .c1{transform:rotate(6deg) translate(6px,-6px)}
   .portrait:hover .c2{transform:rotate(-8deg) scale(.8) translate(-6px,6px)}
   .hello{transition:transform .3s var(--ease)}
   .portrait:hover .hello{transform:rotate(-6deg) scale(1.07)}
 
-  /* the paper card in About tips very slightly */
   .paper{transition:transform .3s var(--ease), box-shadow .3s var(--ease)}
   .paper:hover{transform:rotate(-.5deg); box-shadow:8px 8px 0 var(--ink)}
 }
 
-/* ---------- 16. responsive ---------- */
 @media (max-width:1000px){
   .hero-grid{grid-template-columns:1fr; gap:40px}
   .portrait{justify-self:start; width:320px}
@@ -477,17 +567,66 @@ section{position:relative; padding:86px 0; z-index:2}
   .meta{gap:16px}
   .draft-banner{left:10px; right:10px; max-width:none}
 }
+
+@media (max-width:680px){
+
+  .hero .b-leaf{display:none}
+  .hero .b-star{width:100px; right:-28px; top:-4px}
+  .hero .b-dot{width:108px; left:-36px; bottom:-16px}
+
+  .hero h1{font-size:33px}
+  .role-line{font-size:22px}
+  .tagline{font-size:17px}
+  .lede{font-size:15.5px}
+
+  .cta{gap:10px; margin-top:24px}
+  .cta .btn{padding:10px 18px; font-size:14.5px; box-shadow:3px 3px 0 var(--ink)}
+  .cta .btn:hover{box-shadow:4px 4px 0 var(--ink)}
+
+  .roles{gap:7px; margin-top:24px}
+  .chip{font-size:12.5px; padding:4px 12px}
+
+  .hero{padding-top:36px}
+  .hero-grid{gap:26px}
+  .hero-grid .portrait{order:-1}
+  .portrait{justify-self:center; width:200px; margin:0 0 4px}
+
+  .hero .b-leaf{display:block; width:82px; left:-34px; top:142px; bottom:auto}
+
+  .c1{animation:drift-a 7s ease-in-out infinite}
+  .c2{animation:drift-b 9.5s ease-in-out infinite}
+  .hello{animation:bob 4.5s ease-in-out infinite}
+  .vinyl{animation:spin 26s linear infinite}
+
+  .chip:active,.course li:active{transform:scale(.94) rotate(-2.5deg)}
+  .card:active,.cred:active,.open-roles li:active,.filters button:active,
+  .fact:active,.flow li:active{transform:translate(2px,2px); box-shadow:2px 2px 0 var(--ink)}
+  .cover--phones img{transition:transform .3s var(--ease)}
+  .card:active .cover--phones img:first-child{transform:rotate(0deg) translateX(-6px)}
+  .card:active .cover--phones img:last-child{transform:rotate(0deg) translateX(6px)}
+  .portrait .ring{border-width:7px; outline-offset:-10px; box-shadow:5px 7px 0 var(--ink)}
+  .hello{font-size:23px; left:-2px; top:-4px; text-shadow:2px 2px 0 var(--ink)}
+  .cloud{width:50px; height:27px}
+  .cloud::before{width:23px; height:23px; left:6px; top:-12px}
+  .cloud::after{width:17px; height:17px; right:8px; top:-9px}
+  .c1{right:-8px; top:40px}
+  .c2{left:-10px; bottom:48px}
+  .vinyl{right:-4px; bottom:2px; width:54px; height:54px}
+  .vinyl i{width:19px; height:19px; border-width:2px}
+}
+
 @media (min-width:681px){.nav-cv{display:none}}
 
-/* ---------- 17. reduced motion ---------- */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms!important; animation-iteration-count:1!important; transition-duration:.001ms!important}
   .js-motion .reveal,.js-motion .reveal-tilt,.js-motion .stagger>*,.js-motion .torn span{opacity:1!important; transform:none!important}
 }
 
-/* ---------- 18. print ---------- */
 @media print{
   .site-header,.draft,.draft-banner,.filters{display:none}
+
+  .reveal,.reveal-tilt,.stagger>*,.torn span{opacity:1!important; transform:none!important}
+  .cs-head::before,.cs-head::after,.cs-body::before,.cs-body::after{display:none}
   body{background:#fff} body::before{display:none}
 }

@@ -17,17 +17,22 @@ from the HTML, and leave the line in place. Nothing gets deleted from this file.
         scrapable the moment the site is live.
       To fix either, replace the file keeping the same filename. No code change.
 
-- [ ] **MAN 3 Bogor years.** Not stated in the CV or the portfolio PDF, so the
-      timeline entry reads "Senior high school" instead of a date range.
-      `index.html`, About section.
+- [x] **MAN 3 Bogor years derived.** The timeline now reads 2021 to 2024.
+      This is calculated, not quoted: you went straight from MAN 3 Bogor to
+      BINUS, the CV puts BINUS at July 2024, and Indonesian senior secondary
+      runs three years. Correct it if either assumption is wrong.
 
-- [ ] **Agile Explorer issue date.** Missing from every supplied file; the card
-      shows the year only. The badge link is published exactly as supplied but
-      was not independently confirmed during the build, because the badge page
-      did not render. Open it yourself and confirm.
+- [x] **Agile Explorer resolved.** You supplied the certificate, so the card
+      now shows the real image and the real issue date, 30 September 2026.
+      The verify link was also corrected: the original link was Credly's
+      private earner form, which is why it could not be confirmed earlier.
+      It now uses the public /badges/ URL printed on the certificate, and
+      that page was checked and names you as the earner.
 
-- [ ] **LinkedIn Learning certificate URL.** The Decision-Making Strategies card
-      has no verify link because no public URL was supplied.
+- [x] **LinkedIn Learning link added.** Built from the certificate ID you gave,
+      using LinkedIn Learning's standard certificate URL format. LinkedIn blocks
+      automated fetching, so this one was NOT confirmed during the build, unlike
+      the three Credly badges. Open it once yourself.
 
 ## Project evidence
 
