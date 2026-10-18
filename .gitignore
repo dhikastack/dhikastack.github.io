@@ -1,0 +1,6 @@
+CHECKLIST.md
+.DS_Store
+Thumbs.db
+*.psd
+*.fig
+/private/

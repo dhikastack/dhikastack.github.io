@@ -1,9 +1,9 @@
 # dhikastack.github.io
 
 Personal portfolio of Andhika Hafizh Albana. A static site: plain HTML, CSS and
-JavaScript, no build step, no dependencies to install.
+JavaScript, with no build step and no dependencies to install.
 
-Live URL once GitHub Pages is enabled: <https://dhikastack.github.io/>
+Live at <https://dhikastack.github.io/>
 
 ## Structure
 
@@ -19,19 +19,18 @@ Live URL once GitHub Pages is enabled: <https://dhikastack.github.io/>
 ├── assets/
 │   ├── css/style.css               The whole stylesheet
 │   ├── js/main.js                  Mobile nav, project filter, scroll reveal
-│   ├── js/draft-overlay.js         Development-only notes (see below)
 │   ├── fonts/                      Self-hosted OFL fonts
-│   ├── img/                        Portrait and project screens
-│   └── cv/                         Empty until a web-safe CV is added
-├── .nojekyll                       Tells GitHub Pages to serve files as they are
-├── CHECKLIST.md                    Unresolved items, kept honest
+│   ├── img/                        Portrait, certificates, project screens
+│   └── cv/                         Downloadable CV
+├── robots.txt                      Crawl rules
+├── .nojekyll                       Serve files as they are, no Jekyll pass
 └── README.md
 ```
 
 ## Previewing locally
 
-No server is strictly required; opening `index.html` in a browser works. To see
-it the way GitHub Pages serves it, run a tiny server from this folder:
+Opening `index.html` in a browser works. To see it the way GitHub Pages serves
+it, run a small server from this folder:
 
 ```bash
 python3 -m http.server 8000
@@ -39,20 +38,19 @@ python3 -m http.server 8000
 
 Then open <http://localhost:8000/>.
 
-## Draft notes
+## Cache versioning
 
-Unresolved items live in `data-draft` attributes inside the HTML. They are
-rendered only when the page is opened from `localhost`, `127.0.0.1`, or with
-`?draft=1` in the URL. They never appear on the published site.
-
-When you resolve one, delete its `data-draft` attribute and tick the matching
-line in `CHECKLIST.md`. Do not delete checklist lines.
+`index.html` and the project pages request the stylesheet, the script and the
+CV with a `?v=` query, for example `assets/css/style.css?v=3`. GitHub Pages
+caches each file independently, so without this a returning visitor can receive
+new markup alongside a previous stylesheet. Raise the number whenever one of
+those files changes, in every page that links to it.
 
 ## Fonts
 
-Shrikhand, Shantell Sans and Inter, all SIL Open Font License, self-hosted in
-`assets/fonts/`. Nothing is fetched from Google Fonts at runtime, so the site
-works offline and makes no third-party requests.
+Shrikhand, Shantell Sans and Inter, all under the SIL Open Font License,
+self-hosted in `assets/fonts/`. Nothing is fetched from Google Fonts at
+runtime, so the site makes no third-party requests and works offline.
 
 ## Content rules this site was built under
 
