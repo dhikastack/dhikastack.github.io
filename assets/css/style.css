@@ -540,19 +540,6 @@ section{position:relative; padding:86px 0; z-index:2}
   .wrap{padding-left:max(20px, env(safe-area-inset-left, 0px)); padding-right:max(20px, env(safe-area-inset-right, 0px))}
   section{padding:58px 0}
   .hero{padding:40px 0 56px}
-  .nav-list{display:none}
-  .nav-toggle{display:flex}
-  .nav .btn{display:none}
-  .site-header.open .nav-list{
-    display:flex; flex-direction:column; gap:0; position:absolute; left:0; right:0; top:100%;
-    background:var(--kraft); border-bottom:3px solid var(--ink); padding:8px 20px 18px; margin:0;
-  }
-  .site-header.open .nav-list li{border-top:2px solid rgba(22,21,15,.14)}
-  .site-header.open .nav-list a{display:block; padding:14px 2px; font-size:18px}
-  .site-header.open .nav-list .nav-cv{margin-top:14px}
-  .site-header.open .nav-list .nav-cv a{
-    border:var(--bd); border-radius:999px; background:var(--yellow); text-align:center; box-shadow:var(--sh-sm);
-  }
   .grid3{grid-template-columns:1fr}
   .facts{grid-template-columns:1fr}
   .feat-body{padding:26px 24px}
@@ -609,16 +596,25 @@ section{position:relative; padding:86px 0; z-index:2}
   .vinyl i{width:19px; height:19px; border-width:2px}
 }
 
-@media (min-width:920px){.nav-cv{display:none}}
+@media (min-width:900px){.nav-cv{display:none}}
 
-@media (min-width:681px) and (max-width:919px){
+@media (max-width:899px){
+  .nav-list{display:none}
+  .nav-toggle{display:flex}
   .nav .btn{display:none}
-  .nav-list{gap:20px}
-  .nav-list .nav-cv a{
-    background:var(--yellow); border:3px solid var(--ink); border-radius:999px;
-    padding:6px 16px 7px; box-shadow:3px 3px 0 var(--ink); border-bottom-color:var(--ink);
+  .site-header.open .nav-list{
+    display:flex; flex-direction:column; gap:0; position:absolute; left:0; right:0; top:100%;
+    background:var(--kraft); border-bottom:3px solid var(--ink); padding:8px 20px 18px; margin:0;
+  }
+  .site-header.open .nav-list li{border-top:2px solid rgba(22,21,15,.14)}
+  .site-header.open .nav-list a{display:block; padding:14px 2px; font-size:18px}
+  .site-header.open .nav-list .nav-cv{margin-top:14px}
+  .site-header.open .nav-list .nav-cv a{
+    border:var(--bd); border-radius:999px; background:var(--yellow); text-align:center; box-shadow:var(--sh-sm);
   }
 }
+
+
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
