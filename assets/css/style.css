@@ -67,6 +67,17 @@ main{display:block}
   background-image:radial-gradient(var(--ink) 1.1px, transparent 1.1px); background-size:6px 6px;
 }
 
+.torn .k-red{background:#C8401E}
+.torn .k-blue{background:#2E5FA3}
+.torn .k-green{background:#6E9444}
+.torn .k-pink{background:#C33C72}
+.torn .k-ink{background:#3A362C}
+.torn .k-yellow{background:#FFC930; color:#16150F}
+.torn .k-sun{background:#F2E36B; color:#8E2449}
+.b-proj{right:-54px; top:150px; width:150px}
+.b-rain{left:-50px; bottom:0; width:190px}
+.b-sun{right:-26px; top:-10px; width:104px}
+.mt-xl{margin-top:40px}
 .torn{display:flex; flex-wrap:wrap; gap:6px 22px; align-items:flex-end}
 .torn .word{display:inline-flex; gap:2px; align-items:flex-end}
 .torn span:not(.word){
