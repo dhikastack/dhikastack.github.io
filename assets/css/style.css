@@ -282,10 +282,7 @@ section{position:relative; padding:86px 0; z-index:2}
   border:var(--bd); border-radius:13px; overflow:hidden; display:grid; place-items:center;
 }
 .cred-shot img{width:100%; height:100%; object-fit:cover; object-position:center top; transition:transform .45s var(--ease)}
-.cred-shot--empty{background:var(--kraft-2)}
 .cred-body{flex:1; min-width:0}
-.cred .badge{width:54px; height:54px; border:var(--bd); border-radius:14px; display:grid; place-items:center; font-family:Shrikhand,serif; font-size:15px; background:var(--yellow)}
-.cred .badge.li{background:#0A66C2; color:#fff; font-size:13px}
 .cred h3{font-size:18.5px; line-height:1.3; margin-bottom:4px}
 .cred .iss{font-family:Shantell,cursive; font-weight:700; font-size:14px; color:var(--ink-60)}
 .cred .dt{font-size:13px; color:var(--ink-60); margin-top:2px}
@@ -423,21 +420,6 @@ section{position:relative; padding:86px 0; z-index:2}
 }
 .cs-body a:not(.btn):not(.back):not(.more):hover{background-size:100% 42%}
 
-.draft{
-  border:3px dashed var(--red);
-  background:repeating-linear-gradient(45deg,#F6E2DA,#F6E2DA 10px,#FBEFEA 10px,#FBEFEA 20px);
-  border-radius:14px; padding:12px 16px; margin:18px 0;
-  font-family:Shantell,cursive; font-weight:700; font-size:13.5px; color:#7A2510;
-}
-.draft b{display:block; font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:3px}
-.draft a{color:#7A2510}
-.draft-banner{
-  position:fixed; left:14px; bottom:14px; z-index:90; max-width:320px;
-  background:#7A2510; color:#FFF3EE; border:3px solid var(--ink); border-radius:14px;
-  padding:12px 16px; font-family:Shantell,cursive; font-weight:700; font-size:13px; box-shadow:var(--sh-sm);
-}
-.draft-banner b{display:block; font-size:11px; letter-spacing:.12em; text-transform:uppercase}
-
 .js-motion .reveal{opacity:0; transform:translateY(18px)}
 .js-motion .reveal.in{opacity:1; transform:none; transition:opacity .62s var(--ease), transform .62s var(--ease)}
 .js-motion .reveal-tilt{opacity:0; transform:translateY(22px) rotate(-1.6deg)}
@@ -496,8 +478,6 @@ section{position:relative; padding:86px 0; z-index:2}
   .card:hover .cover--wide img{transform:rotate(0deg) scale(1.02); box-shadow:6px 6px 0 var(--ink)}
 
   .cred:hover{transform:translate(-2px,-2px); box-shadow:8px 8px 0 #091B33}
-  .cred .badge{transition:transform .25s var(--ease)}
-  .cred:hover .badge{transform:rotate(-7deg) scale(1.06)}
 
   .fact,.cs-meta li,.flow li{transition:transform .2s var(--ease), box-shadow .2s var(--ease)}
   .fact:hover,.cs-meta li:hover{transform:translateY(-3px); box-shadow:var(--sh-sm)}
@@ -577,7 +557,6 @@ section{position:relative; padding:86px 0; z-index:2}
   .vinyl{right:-10px; width:72px; height:72px}
   .c2{left:-16px}
   .meta{gap:16px}
-  .draft-banner{left:10px; right:10px; max-width:none}
 }
 
 @media (max-width:680px){
@@ -636,7 +615,7 @@ section{position:relative; padding:86px 0; z-index:2}
 }
 
 @media print{
-  .site-header,.draft,.draft-banner,.filters{display:none}
+  .site-header,.filters{display:none}
 
   .reveal,.reveal-tilt,.stagger>*,.torn span{opacity:1!important; transform:none!important}
   .cs-head::before,.cs-head::after,.cs-body::before,.cs-body::after{display:none}
