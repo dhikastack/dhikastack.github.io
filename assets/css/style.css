@@ -10,7 +10,7 @@
   --kraft:#E9E3D6; --kraft-2:#E0D8C7; --cream:#FAF6EC;
   --ink:#16150F; --ink-60:#54513F;
   --yellow:#FFC930; --blue:#2E5FA3; --green:#227C47;
-  --red:#C8401E; --pink:#C33C72; --navy:#16365E; --purple:#5B3F96;
+  --red:#C8401E; --red-ink:#7A2510; --pink:#C33C72; --navy:#16365E; --purple:#5B3F96;
   --sh:6px 6px 0 var(--ink); --sh-sm:4px 4px 0 var(--ink);
   --bd:3px solid var(--ink);
   --maxw:1180px;
@@ -147,7 +147,7 @@ main{display:block}
 .hero h1 .hi{display:block; font-family:Shantell,cursive; font-weight:800; font-size:.44em; color:var(--ink-60); margin-bottom:.28em}
 .role-line{
   font-family:Shrikhand,serif; font-size:clamp(23px,2.7vw,34px); line-height:1.18;
-  margin:14px 0 0; color:var(--red);
+  margin:14px 0 0; color:var(--red-ink);
 }
 .role-line .lead-in{color:var(--ink-60); font-family:Shantell,cursive; font-weight:700; font-size:.6em}
 .tagline{font-family:Shantell,cursive; font-weight:700; font-size:clamp(17px,1.5vw,21px); margin:20px 0 0; max-width:30ch; line-height:1.5}
@@ -534,6 +534,9 @@ section{position:relative; padding:86px 0; z-index:2}
 }
 @media (max-width:680px){
   body{font-size:16px}
+  .more{display:inline-block; padding:9px 0}
+  .filters button{min-height:44px}
+  .card .more,.feat .more{min-height:44px; display:inline-flex; align-items:center}
   .wrap{padding-left:max(20px, env(safe-area-inset-left, 0px)); padding-right:max(20px, env(safe-area-inset-right, 0px))}
   section{padding:58px 0}
   .hero{padding:40px 0 56px}
@@ -606,7 +609,16 @@ section{position:relative; padding:86px 0; z-index:2}
   .vinyl i{width:19px; height:19px; border-width:2px}
 }
 
-@media (min-width:681px){.nav-cv{display:none}}
+@media (min-width:920px){.nav-cv{display:none}}
+
+@media (min-width:681px) and (max-width:919px){
+  .nav .btn{display:none}
+  .nav-list{gap:20px}
+  .nav-list .nav-cv a{
+    background:var(--yellow); border:3px solid var(--ink); border-radius:999px;
+    padding:6px 16px 7px; box-shadow:3px 3px 0 var(--ink); border-bottom-color:var(--ink);
+  }
+}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
