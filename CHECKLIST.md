@@ -8,14 +8,13 @@ from the HTML, and leave the line in place. Nothing gets deleted from this file.
 
 ## Blocking nothing, but worth doing
 
-- [x] **CV file wired up.** `assets/cv/andhika-hafizh-albana-cv.pdf` is in place
-      and every Download CV action points at it with `download`. Two things
-      still need a decision before you publish:
-      - The CV lists SankaSpot and omits PurePlate, BINUSMAYA and Authentix,
-        so it disagrees with the Projects section of the site.
-      - It carries a phone number and home area, which become public and
-        scrapable the moment the site is live.
-      To fix either, replace the file keeping the same filename. No code change.
+- [x] **CV file wired up and replaced.** `assets/cv/andhika-hafizh-albana-cv.pdf`
+      now holds the updated CV you supplied on 18 October 2026, under the same
+      filename, so every Download CV action still points at it. Both earlier
+      concerns are resolved in that file: the phone number and home area are
+      gone, and SankaSpot has been replaced by PurePlate. The CV still lists
+      three projects while the site shows five, which is normal and not a
+      conflict. The site copy was realigned to this CV in the same change.
 
 - [x] **MAN 3 Bogor years derived.** The timeline now reads 2021 to 2024.
       This is calculated, not quoted: you went straight from MAN 3 Bogor to
@@ -48,7 +47,10 @@ from the HTML, and leave the line in place. Nothing gets deleted from this file.
 
 - [ ] **PurePlate method mismatch.** The site says usability testing, which you
       confirmed is correct. The repository README still says A/B testing. Update
-      the README so the two agree.
+      the README so the two agree. Note that the updated CV does not mention
+      usability testing for PurePlate either; its three bullets stop at
+      wireframes and prototypes. Usability testing was kept on the page because
+      you confirmed it directly, but say the word and it comes off.
 
 - [ ] **BINUSMAYA team size.** Not recorded anywhere supplied, so the page says
       "Team academic project" without a number.
@@ -68,12 +70,25 @@ from the HTML, and leave the line in place. Nothing gets deleted from this file.
       "Analysis & modelling", "End-to-end product") were written during the build
       and are easy to change.
 
-- [ ] **Positioning.** The hero says "UI/UX Designer and Systems Analyst" while
-      the Connect section lists UI/UX Designer, Systems Analyst and Product
-      Designer. Intentional, but worth a second look before applying anywhere.
+- [ ] **Positioning.** The hero still says "UI/UX Designer and Systems Analyst",
+      while your stated career path and the Connect cards are UI/UX design and
+      research, system analysis, and product design. The updated CV summary now
+      leads with Product Design. The hero was left as it is because you set that
+      wording deliberately and did not ask to change it, but CV and hero now
+      emphasise different things. Decide which one should lead.
 
-- [ ] **GPA on a public page.** 3.54 is shown in the About section. Confirm it
-      matches your latest academic record, or remove the tile.
+- [x] **GPA on a public page.** 3.54 is shown in the About section and matches
+      the updated CV, which states a cumulative GPA of 3.54 / 4.00.
+
+- [ ] **Draft notes still in the published HTML.** The `data-draft` attributes
+      are invisible on the live site but readable in view-source. You chose to
+      leave them for the next correction round. One of them refers to a phone
+      number in the CV, which no longer applies now that the CV has been
+      replaced, so that note is stale as well as visible.
+
+- [ ] **A/B testing in the skills list.** The updated CV lists A/B Testing as a
+      hard skill. No project on the site documents an A/B test, so nothing was
+      added to the site for it. Worth either evidencing or leaving off the CV.
 
 ## Before publishing, every time
 
