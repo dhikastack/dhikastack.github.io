@@ -192,6 +192,10 @@ section{position:relative; padding:86px 0; z-index:2}
 .sec-sub{color:var(--ink-60); max-width:62ch; margin-bottom:46px}
 
 #about{background:var(--kraft-2); border-top:3px solid var(--ink); border-bottom:3px solid var(--ink)}
+.tl-head{font-family:Shrikhand,serif; font-size:clamp(20px,2.1vw,25px); margin-bottom:20px}
+#about .b-squig{left:-78px; top:118px; width:168px; transform:rotate(-8deg)}
+#about .b-plus{right:-52px; top:52px; width:104px; transform:rotate(12deg)}
+#about .b-ring{right:34px; bottom:-34px; width:138px}
 .about-grid{display:grid; grid-template-columns:.92fr 1.08fr; gap:64px; align-items:start}
 .paper{background:var(--cream); border:var(--bd); border-radius:22px; box-shadow:var(--sh); padding:30px 32px}
 .about-intro{font-family:Shantell,cursive; font-size:18.5px; line-height:1.62; margin-bottom:22px}
@@ -534,6 +538,9 @@ section{position:relative; padding:86px 0; z-index:2}
 }
 @media (max-width:680px){
   body{font-size:16px}
+  #about .b-squig{width:92px; left:-34px; top:auto; bottom:-18px}
+  #about .b-plus{width:58px; right:-20px; top:16px}
+  #about .b-ring{display:none}
   .more{display:inline-block; padding:9px 0}
   .cs-body li > a{display:inline-block; padding:10px 0}
   .mark{position:relative}
