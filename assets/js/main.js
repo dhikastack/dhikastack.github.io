@@ -187,7 +187,17 @@
   function queue() {
     if (queued) return;
     queued = true;
-    window.requestAnimationFrame(check);
+
+    var ran = false;
+
+    window.requestAnimationFrame(function () {
+      ran = true;
+      check();
+    });
+
+    window.setTimeout(function () {
+      if (!ran) check();
+    }, 300);
   }
 
   window.addEventListener('scroll', queue, { passive: true });

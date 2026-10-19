@@ -535,6 +535,9 @@ section{position:relative; padding:86px 0; z-index:2}
 @media (max-width:680px){
   body{font-size:16px}
   .more{display:inline-block; padding:9px 0}
+  .cs-body li > a{display:inline-block; padding:10px 0}
+  .mark{position:relative}
+  .mark::after{content:''; position:absolute; left:0; right:0; top:50%; transform:translateY(-50%); height:44px}
   .filters button{min-height:44px}
   .card .more,.feat .more{min-height:44px; display:inline-flex; align-items:center}
   .wrap{padding-left:max(20px, env(safe-area-inset-left, 0px)); padding-right:max(20px, env(safe-area-inset-right, 0px))}
